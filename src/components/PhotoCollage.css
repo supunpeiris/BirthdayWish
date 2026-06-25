@@ -1,0 +1,107 @@
+.gallery-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 1rem;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.background-wall {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 0;
+  opacity: 0.15;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.background-wall img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(30%) blur(1px);
+}
+
+.svg-defs {
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+.heart-wrapper {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.15));
+}
+
+.collage-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 6px;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: white;
+  padding: 8px; /* Inner white border */
+  clip-path: url(#heart-clip);
+  transition: transform 0.4s ease;
+}
+
+.collage-grid:hover {
+  transform: scale(1.02);
+}
+
+.grid-photo {
+  overflow: hidden;
+  position: relative;
+  background: #f0f0f0;
+}
+
+.grid-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.grid-photo:hover img {
+  transform: scale(1.1);
+}
+
+.forever-text {
+  font-family: 'Dancing Script', 'Brush Script MT', cursive;
+  font-size: 4rem;
+  color: var(--text-main);
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+  font-weight: 400;
+}
+
+.section-action {
+  margin-top: 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .heart-wrapper {
+    max-width: 95%;
+  }
+  .collage-grid {
+    gap: 4px;
+    padding: 6px;
+  }
+  .forever-text {
+    font-size: 3rem;
+  }
+}
